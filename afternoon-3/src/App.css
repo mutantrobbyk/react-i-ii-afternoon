@@ -1,0 +1,79 @@
+.App {
+  font-family: 'Open Sans', sans-serif;
+}
+header {
+  height: 10vh;
+  width: 100vw;
+  background-color: #3387d6;
+  display: flex;
+  align-items: center;
+}
+h4 {
+  margin-left: 4vw;
+}
+body {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.content {
+  background-color: white;
+  height: 60vh;
+  width: 85vw;
+  margin-top: 12vh;
+  display: flex;
+  flex-direction: column;
+}
+.id {
+  margin-left: 75vw;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+.firstName {
+  margin-left: 4vw;
+  font-size: 1.5em;
+  margin-top: 0;
+  font-weight: bold; 
+  text-decoration: underline;
+  text-decoration-color: #3387d6; 
+}
+.country {
+  margin-left: 4vw;
+  margin-bottom: 0.5em;
+}
+.title {
+  margin-left: 4vw;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+.employer {
+  margin-left: 4vw;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+span {
+  font-weight: bold;
+}
+ol {
+  padding: 0;
+  margin-left: 4vw;
+}
+li {
+  margin-left: 4vw;
+}
+.bar {
+  display: flex;
+  margin-top: 0;
+  justify-content: space-around;
+  align-items: center;
+  height: 5vh;
+  width: 80vw;
+}
+h3 {
+  color: white;
+}
+
