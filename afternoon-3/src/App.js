@@ -8,8 +8,33 @@ class App extends Component {
     super()
     this.state = {
       dataSheet: Data,
-      index: 0
+      index: 0,
+      id: 26,
+      city: '',
+      country: '',
+      employer: ''
     }
+  }
+  newCard(){
+    this.setState({
+      dataSheet: [...Data,{id:this.state.id, name:{first:'Bob', last: 'Bobby'},city: this.state.city,title: 'Awesome', favoriteMovies:['1','2','3'], country: this.state.country, employer: this.state.employer},],
+      city:'',
+      country: '',
+      employer: ''
+    })
+    this.state.id++
+  }
+  delete(){
+    this.state.dataSheet.splice(this.state.index, 1)
+    this.setState({
+      dataSheet: [...this.state.dataSheet],
+      index: this.state.index -1
+    })
+  }
+  handleInput = e => {
+    this.setState({
+      [e.target.placeholder]: e.target.value
+    })
   }
   next() {
     this.setState({
@@ -32,10 +57,11 @@ class App extends Component {
     }
   }
   render() {
+    console.log(this.state.index)
     let dataSheet = this.state.dataSheet.map(data => {
       return (
         <div className="content">
-          <p className='id'>{data.id}/{this.state.dataSheet.length}</p>
+          <p className='id'>{this.state.index + 1}/{this.state.dataSheet.length}</p>
           <p className='firstName'>{data.name.first} {data.name.last}</p>
           <p className='country'><span>From:</span> {data.country}</p>
           <p className='title'><span>Job Title:</span> {data.title}</p>
@@ -58,8 +84,11 @@ class App extends Component {
           <div className="bar">
             <h3 onClick={() => this.previous()}><span>&#60;</span> Previous</h3>
             <button>Edit</button>
-            <button>Delete</button>
-            <button>New</button>
+            <button onClick={() => this.delete()}>Delete</button>
+            <button onClick={() => this.newCard()}>New</button>
+            <input onChange={e => this.handleInput(e)} value={this.state.city} placeholder='city' type="text"/>
+            <input onChange={e => this.handleInput(e)} value={this.state.country} placeholder='country' type="text"/>
+            <input onChange={e => this.handleInput(e)} value={this.state.employer} placeholder='employer' type="text"/>
             <h3 onClick={() => this.next()}>Next <span>&#62;</span></h3>
           </div>
         </body>
